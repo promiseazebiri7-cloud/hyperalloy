@@ -1,50 +1,48 @@
-# Remix IDE Blank Template
+# Hyperalloy
 
-Welcome to your new **Remix IDE Blank Workspace**!
+**Making idle, illiquid tokenized real-world assets useful again.**
 
-This workspace has been generated using the "Blank Template" option in Remix IDE. It starts with only minimal configuration files, giving you full control to build your project from scratch.
+## The Problem
 
----
+Billions of dollars in tokenized real-world assets (real estate, private credit, commodities, and more) now exist on Arbitrum — but most sit idle. Verified examples show tokenized assets worth over $2M held by a single wallet, with zero secondary market to trade against. Tokenization alone doesn't create liquidity.
 
-## What's Included?
+## What Hyperalloy Does
 
-- **`remix.config.json`**: Default Remix IDE workspace configuration.
-- **`.prettierrc.json`**: Basic Prettier formatting rules for code consistency.
+Hyperalloy pools idle, illiquid tokenized real-world assets into algorithmically-managed, diversified baskets — turning individually untradeable assets into one easier-to-trade digital product.
 
-No contract files, folders, or sample code are included.
+- **Automated asset intake** — assets are deposited, valued via oracle/appraisal data, and locked into vault contracts, fully permissionless
+- **Algorithmic basket formation** — assets are clustered by risk/correlation, not manually curated
+- **Independent withdrawal** — asset owners can always redeem their share; nothing is permanently locked
+- **Automated pricing** — starting value from appraisals + oracles, live price shaped by real trading and arbitrage
+- **Automated rebalancing** — smart contracts keep baskets balanced as asset values shift
 
----
+This isn't about making any single asset more valuable — it's about combining hard-to-trade assets into one easier-to-trade product that software can automatically manage, making previously idle value useful again.
 
-## Getting Started
+## Current Status
 
-1. **Create Files & Folders**
+🚧 **Early-stage prototype** — building on Arbitrum Sepolia (testnet)
 
-   - Add new Solidity files, scripts, or folders as needed for your project.
-   - You can organize your workspace structure in any way you like.
+- [x] Mock Real Estate Token (ERC-20)
+- [x] Mock Gold Token (ERC-20)
+- [x] Vault contract (deposit / withdraw / basket minting)
+- [ ] Deployment to Arbitrum Sepolia
+- [ ] Chainlink oracle integration
+- [ ] Frontend (deposit, basket view, withdraw)
 
-2. **Setup Project Settings** (Optional)
+## Tech Stack
 
-   - Modify `remix.config.json` or add additional configuration files as your project grows.
+- **Solidity** + **OpenZeppelin** — smart contracts
+- **Remix IDE** — development environment
+- **Arbitrum Sepolia** — testnet deployment
+- **Chainlink** (planned) — price oracles
+- **Next.js + Tailwind** (planned) — frontend
 
-3. **Write & Compile Smart Contracts**
+## Built For
 
-   - Use the **Solidity Compiler** and **Deploy & Run Transactions** plugins (available in Remix IDE's left sidebar) to develop and test your contracts.
+Arbitrum Open House Singapore 2026 Buildathon
 
-4. **(Optional) Initialize Git**
+## Contracts
 
-   - If you checked "Initialize as a Git repository" during workspace creation, you can start committing your code immediately.
-
----
-
-## Useful Resources
-
-- [Remix IDE Documentation](https://remix-ide.readthedocs.io/)
-- [Solidity Language Documentation](https://docs.soliditylang.org/)
-- [Remix IDE Community Forum](https://forum.remix.ethereum.org/)
-
----
-
-Happy coding! 🚀 
-
-_Remix IDE Team_
-
+- `RealEstateToken.sol` — mock tokenized real estate asset
+- `GoldToken.sol` — mock tokenized gold asset
+- `HyperalloyVault.sol` — core vault contract combining assets into a basket token
