@@ -1,1 +1,667 @@
-nsnsksjks
+/* ==========================================================================
+   HYPERALLOY — Shared Stylesheet
+   Liquidity infrastructure for tokenized real-world assets
+
+   Fonts:
+     Display  — "Fraunces"      (headlines, hero copy — elegant serif)
+     Body/UI  — "Inter"         (nav, labels, buttons, table text)
+     Data     — "IBM Plex Mono" (numbers, balances, percentages, addresses)
+
+   Palette:
+     --navy       #0B1220   primary / nav / buttons / headline text
+     --slate      #1F2A37   secondary text / table headers / borders
+     --light-gray #E5E7EB   card backgrounds / dividers
+     --gold       #D4AF37   accents / active tab / positive stats
+     --off-white  #F9F7F4   page background
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. Root variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --navy: #0B1220;
+  --navy-90: rgba(11, 18, 32, 0.9);
+  --slate: #1F2A37;
+  --slate-60: rgba(31, 42, 55, 0.6);
+  --light-gray: #E5E7EB;
+  --gold: #D4AF37;
+  --gold-10: rgba(212, 175, 55, 0.1);
+  --off-white: #F9F7F4;
+  --white: #FFFFFF;
+
+  /* Type */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-data: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Radius / shadow */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 2px rgba(11, 18, 32, 0.04), 0 1px 8px rgba(11, 18, 32, 0.03);
+  --border-hairline: 1px solid var(--light-gray);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--off-white);
+  color: var(--navy);
+  font-size: 15px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+table { border-collapse: collapse; width: 100%; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Visible keyboard focus */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography
+   -------------------------------------------------------------------------- */
+.display-xl {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+.display-xl em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate-60);
+}
+
+h1, h2, h3 { font-family: var(--font-display); color: var(--navy); font-weight: 500; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.125rem; }
+
+p { color: var(--slate); }
+.text-muted { color: var(--slate-60); }
+
+.mono, .data-value, .stat-value, .table-cell-value {
+  font-family: var(--font-data);
+}
+
+/* --------------------------------------------------------------------------
+   4. Layout shell
+   -------------------------------------------------------------------------- */
+.page {
+  min-height: 100vh;
+  background: var(--off-white);
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.page-content {
+  padding: var(--space-6) 0 var(--space-8);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 860px) {
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  .container { padding: 0 var(--space-4); }
+}
+
+/* --------------------------------------------------------------------------
+   5. Navbar
+   -------------------------------------------------------------------------- */
+.navbar {
+  background: var(--navy);
+  padding: 0 var(--space-6);
+  height: 64px;
+}
+
+.navbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-7);
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.01em;
+}
+
+.navbar-logo-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--gold), #B8912C);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.navbar-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  padding: var(--space-2) 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.navbar-link:hover { color: var(--white); }
+
+.navbar-link.active {
+  color: var(--white);
+  border-bottom-color: var(--gold);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.wallet-badge {
+  font-family: var(--font-data);
+  font-size: 13px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   6. Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.btn-primary:hover { opacity: 0.88; }
+
+.btn-primary:disabled {
+  background: var(--light-gray);
+  color: var(--slate-60);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid var(--light-gray);
+}
+
+.btn-secondary:hover { border-color: var(--slate); }
+
+.btn-block { width: 100%; }
+
+.btn-sm { padding: var(--space-2) var(--space-3); font-size: 13px; }
+
+/* --------------------------------------------------------------------------
+   7. Cards
+   -------------------------------------------------------------------------- */
+.card {
+  background: var(--white);
+  border: var(--border-hairline);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+}
+
+.stat-card {
+  background: var(--white);
+  border: var(--border-hairline);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--slate-60);
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.stat-value .unit {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--slate-60);
+  margin-left: var(--space-1);
+}
+
+.stat-delta {
+  font-family: var(--font-data);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.stat-delta.positive { color: var(--gold); }
+.stat-delta.negative { color: #B3413A; }
+
+.stat-subtext {
+  font-size: 12px;
+  color: var(--slate-60);
+}
+
+/* --------------------------------------------------------------------------
+   8. Tabs (Overview / Deposit / Basket / Withdraw)
+   -------------------------------------------------------------------------- */
+.tabs {
+  display: flex;
+  gap: var(--space-6);
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.tab {
+  padding: var(--space-3) 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--slate-60);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s ease;
+}
+
+.tab:hover { color: var(--navy); }
+
+.tab.active {
+  color: var(--navy);
+  border-bottom-color: var(--gold);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   9. Progress / composition bars
+   -------------------------------------------------------------------------- */
+.progress-bar {
+  display: flex;
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--light-gray);
+}
+
+.progress-segment { height: 100%; }
+.progress-segment.navy { background: var(--navy); }
+.progress-segment.gold { background: var(--gold); }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-top: var(--space-3);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: var(--slate);
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-dot.navy { background: var(--navy); }
+.legend-dot.gold { background: var(--gold); }
+
+/* --------------------------------------------------------------------------
+   10. Data tables
+   -------------------------------------------------------------------------- */
+.data-table thead th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--slate);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-hairline);
+}
+
+.data-table tbody td {
+  padding: var(--space-4);
+  font-size: 14px;
+  border-bottom: 1px solid var(--light-gray);
+  color: var(--navy);
+}
+
+.data-table tbody tr:last-child td { border-bottom: none; }
+
+.data-table .table-cell-value {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.data-table tfoot td {
+  padding: var(--space-4);
+  font-weight: 600;
+  border-top: 2px solid var(--slate);
+}
+
+.asset-name-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 500;
+}
+
+.asset-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.asset-dot.navy { background: var(--navy); }
+.asset-dot.gold { background: var(--gold); }
+
+/* --------------------------------------------------------------------------
+   11. Forms / inputs (deposit, withdraw)
+   -------------------------------------------------------------------------- */
+.field {
+  border: var(--border-hairline);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  background: var(--white);
+}
+
+.field-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.field-token {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.token-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.token-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--slate-60);
+  background: var(--light-gray);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.field-balance {
+  font-size: 12px;
+  color: var(--slate-60);
+  text-align: right;
+}
+
+.field-input-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.field-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--font-data);
+  font-size: 1.5rem;
+  color: var(--navy);
+  outline: none;
+}
+
+.field-max-btn {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--light-gray);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+}
+
+.field-max-btn:hover { background: var(--gold-10); }
+
+.field-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+  font-size: 12px;
+  color: var(--slate-60);
+}
+
+.status-approved { color: #3F7A4D; font-weight: 500; }
+
+/* --------------------------------------------------------------------------
+   12. Step strip (4-step process)
+   -------------------------------------------------------------------------- */
+.step-strip {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-data);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-body h4 {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.step-body p {
+  font-size: 13px;
+  color: var(--slate-60);
+  line-height: 1.4;
+}
+
+.step-connector {
+  flex: 0 0 auto;
+  color: var(--light-gray);
+  padding-top: var(--space-2);
+}
+
+@media (max-width: 860px) {
+  .step-strip { flex-direction: column; }
+  .step-connector { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   13. Protocol status / info rows
+   -------------------------------------------------------------------------- */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-2) 0;
+  font-size: 13px;
+}
+
+.info-row .label { color: var(--slate-60); }
+.info-row .value { color: var(--navy); font-weight: 500; font-family: var(--font-data); }
+
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: var(--space-2);
+}
+
+.status-dot.live { background: #3F7A4D; }
+.status-dot.prototype { background: var(--gold); }
+
+/* --------------------------------------------------------------------------
+   14. Callout / note box
+   -------------------------------------------------------------------------- */
+.callout {
+  background: var(--gold-10);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  font-size: 13px;
+  color: var(--slate);
+}
+
+/* --------------------------------------------------------------------------
+   15. Divider / footer strip
+   -------------------------------------------------------------------------- */
+.divider { height: 1px; background: var(--light-gray); border: none; margin: var(--space-6) 0; }
+
+.footer-strip {
+  border-top: 1px solid var(--light-gray);
+  padding: var(--space-6) 0;
+}
+
+.footer-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--slate);
+}
