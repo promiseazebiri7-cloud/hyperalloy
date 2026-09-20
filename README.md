@@ -25,7 +25,7 @@ This isn't about making any single asset more valuable — it's about combining 
 - [x] Mock Real Estate Token (ERC-20)
 - [x] Mock Gold Token (ERC-20)
 - [x] Vault contract (deposit / withdraw / basket minting)
-- [ ] Deployment to Arbitrum Sepolia
+- [x] Deployment to Arbitrum Sepolia
 - [ ] Chainlink oracle integration
 - [ ] Frontend (deposit, basket view, withdraw)
 
