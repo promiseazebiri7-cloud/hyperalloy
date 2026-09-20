@@ -142,22 +142,6 @@
 
   </div>
 
-  <script>
-    // Mobile menu toggle
-    (function () {
-      var navbar = document.getElementById('navbar');
-      var toggle = document.getElementById('nav-toggle');
-      toggle.addEventListener('click', function () {
-        var open = navbar.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      document.querySelectorAll('.navbar-link').forEach(function (link) {
-        link.addEventListener('click', function () {
-          navbar.classList.remove('is-open');
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    })();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
