@@ -801,3 +801,820 @@ h1, h2, h3, p {
     padding: 22px 24px;
   }
 }
+/* ==========================================================================
+   13. APP PAGES (overview, deposit, basket, withdraw)
+   ========================================================================== */
+
+/* ---------- Icons (SVG sprite is injected by script.js) ---------- */
+.icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Page headings and helpers ---------- */
+.page-head { margin-bottom: 20px; }
+
+.page-title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+.page-sub {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.narrow {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-md {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.hide-sm { display: none; }
+
+.unit {
+  font-size: 0.6em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* ---------- Wallet badge (network + address) ---------- */
+.wallet-badge {
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.wallet-network {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--slate);
+  white-space: nowrap;
+}
+
+.wallet-address {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.wallet-badge .icon {
+  width: 14px;
+  height: 14px;
+  color: var(--muted);
+}
+
+/* ---------- Stat cards ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.stat-grid .stat-card { padding: 16px; }
+
+.stat-grid .stat-value {
+  font-size: 22px;
+  white-space: nowrap;
+}
+
+.stat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.stat-note {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- Composition legend ---------- */
+.legend {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.legend-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 14px;
+  color: var(--navy);
+}
+
+.legend-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-name small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-dot.is-navy { background: var(--navy); }
+.legend-dot.is-gold { background: var(--gold); }
+
+.legend-pct,
+.legend-val,
+.legend-hold {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend-val { color: var(--muted); min-width: 92px; }
+
+.legend-row--total {
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.legend-row--total .legend-val { color: var(--navy); }
+
+/* Total basket value + HALLOY supply */
+.split-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.split-stats .stat-value { font-size: 20px; margin-top: 4px; }
+
+.split-token {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 16px;
+  border-left: 1px solid var(--border);
+}
+
+.split-token .token-badge { width: 36px; height: 36px; flex-shrink: 0; }
+
+/* ---------- Tables ---------- */
+.table-wrap { overflow-x: auto; }
+
+.data-table th,
+.data-table td { padding: 12px 6px; }
+
+.data-table th:first-child,
+.data-table td:first-child { padding-left: 0; }
+
+.data-table th:last-child,
+.data-table td:last-child { padding-right: 0; }
+
+.data-table th.num { text-align: right; }
+
+.data-table tfoot td {
+  font-weight: 600;
+  border-top: 1px solid var(--border);
+  border-bottom: 0;
+}
+
+.asset-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.asset-cell small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.asset-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--navy);
+}
+
+.asset-icon.is-gold { color: var(--gold); }
+
+/* ---------- Position card ---------- */
+.position-value {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+.meter {
+  height: 6px;
+  margin: 12px 0 18px;
+  background: var(--gray);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.meter > span {
+  display: block;
+  height: 100%;
+  min-width: 6px;
+  background: var(--navy);
+  border-radius: 999px;
+}
+
+.kv-title {
+  margin: 4px 0 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.kv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.kv {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--slate);
+}
+
+.kv strong {
+  font-weight: 500;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* ---------- Protocol status ---------- */
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 12px;
+}
+
+.status-item small {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.status-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--navy);
+}
+
+.status-dot.is-gold { background: var(--gold); }
+
+.status-dot { flex-shrink: 0; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  background: none;
+  border: 0;
+  color: var(--muted);
+}
+
+.icon-btn:hover { color: var(--navy); }
+.icon-btn .icon { width: 14px; height: 14px; }
+
+/* ---------- Deposit / withdraw forms ---------- */
+.token-card { padding: 18px 20px; }
+
+.token-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.token-id {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.token-tag {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--gray);
+  color: var(--slate);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.token-tag.is-navy {
+  background: var(--navy);
+  color: #fff;
+}
+
+.token-balance {
+  text-align: right;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.token-balance strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.amount-field {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.amount-field:focus-within {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
+}
+
+.amount-field.has-error { border-color: #B42318; }
+
+.amount-input {
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  padding: 0 14px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--navy);
+  outline: none;
+}
+
+.amount-unit {
+  padding-right: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.max-btn {
+  height: 52px;
+  padding: 0 16px;
+  border: 0;
+  border-left: 1px solid var(--border);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--card-bg);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.max-btn:hover { background: var(--gray); }
+
+.field-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.field-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: var(--status-green);
+}
+
+.field-status .icon { width: 14px; height: 14px; }
+
+.field-error {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #B42318;
+}
+
+.field-error[hidden] { display: none; }
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--slate);
+}
+
+.summary-row strong {
+  font-weight: 500;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.summary-total {
+  align-items: baseline;
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.summary-total strong {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.btn-block {
+  width: 100%;
+  height: 52px;
+  font-size: 15px;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.notice {
+  display: flex;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.notice .icon {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}
+
+.card-tint {
+  background: rgba(212, 175, 55, 0.08);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* ---------- Basket page ---------- */
+.basket-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.basket-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.basket-total { text-align: right; }
+
+.basket-total .stat-value { font-size: 24px; }
+
+.about-basket {
+  display: grid;
+  gap: 20px;
+}
+
+.about-basket p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.flow-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.flow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.flow-icon .icon { width: 24px; height: 24px; }
+.flow-icon.is-gold { color: var(--gold); }
+
+.flow-icon.is-token {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.flow-op {
+  display: inline-flex;
+  color: var(--muted);
+}
+
+/* ---------- Withdraw page ---------- */
+.withdraw-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  grid-template-areas:
+    "amount"
+    "receive"
+    "after"
+    "rate"
+    "action";
+}
+
+.wg-amount  { grid-area: amount; }
+.wg-receive { grid-area: receive; }
+.wg-after   { grid-area: after; }
+.wg-rate    { grid-area: rate; }
+.wg-action  { grid-area: action; display: flex; flex-direction: column; gap: 14px; }
+
+.receive-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: var(--slate);
+}
+
+.receive-row .asset-cell { color: var(--navy); }
+
+.receive-row strong {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.big-value {
+  margin: 4px 0 16px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+/* ---------- Mobile bottom tab bar ---------- */
+.tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+  background: rgba(253, 252, 251, 0.96);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border);
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 0 8px;
+  background: none;
+  border: 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.tab .icon { width: 22px; height: 22px; }
+
+.tab.is-active {
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.tab.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 22px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.more-sheet {
+  position: fixed;
+  right: 12px;
+  bottom: calc(78px + env(safe-area-inset-bottom));
+  z-index: 70;
+  min-width: 180px;
+  padding: 6px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(11, 18, 32, 0.12);
+}
+
+.more-sheet[hidden] { display: none; }
+
+.more-sheet a {
+  display: block;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: var(--navy);
+}
+
+body.has-tabbar .page-content { padding-bottom: 104px; }
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 96px;
+  z-index: 80;
+  max-width: calc(100% - 32px);
+  padding: 12px 16px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ---------- App page: phones ---------- */
+@media (max-width: 899px) {
+  .wallet-badge {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 10px;
+    align-items: center;
+    height: auto;
+    padding: 7px 10px;
+  }
+
+  .wallet-network,
+  .wallet-address { grid-column: 1; }
+
+  .wallet-badge .icon {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
+
+/* ---------- App page: tablet and up ---------- */
+@media (min-width: 640px) {
+  .hide-sm { display: block; }
+
+  .stat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stat-grid .stat-card { padding: 18px 20px; }
+  .stat-grid .stat-value { font-size: 28px; }
+
+  .status-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .legend-row--4 {
+    grid-template-columns: minmax(0, 1fr) 90px 130px 130px;
+  }
+
+  .about-basket { grid-template-columns: 1fr auto; align-items: center; }
+}
+
+/* ---------- App page: desktop ---------- */
+@media (min-width: 900px) {
+  .grid-2 { grid-template-columns: 1.35fr 1fr; }
+  .grid-2--even { grid-template-columns: 1fr 1fr; }
+
+  .status-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+  .wallet-badge { gap: 12px; }
+
+  .wallet-network {
+    padding-right: 12px;
+    border-right: 1px solid var(--border);
+  }
+
+  .withdraw-grid {
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-areas:
+      "amount after"
+      "receive rate"
+      "action .";
+  }
+
+  .tabbar,
+  .more-sheet { display: none !important; }
+
+  body.has-tabbar .page-content { padding-bottom: 64px; }
+
+  .toast { bottom: 32px; }
+}
