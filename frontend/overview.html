@@ -1,1 +1,185 @@
-bsjskkskd
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F9F7F4">
+  <title>Overview | Hyperalloy</title>
+  <link rel="icon" href="assets/20260824_024823.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;1,8..60,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="has-tabbar" data-page="overview">
+  <div class="page">
+    <header class="navbar" id="app-header"></header>
+
+    <main class="page-content">
+      <div class="container stack">
+
+        <!-- Stat cards -->
+        <section class="stat-grid" aria-label="Key numbers">
+          <article class="stat-card">
+            <p class="stat-label">Portfolio Value</p>
+            <p class="stat-value">$12,480.00</p>
+            <p class="stat-delta">+2.14% (24h)</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-head">
+              <p class="stat-label">Your HALLOY Balance</p>
+              <span class="token-badge">H</span>
+            </div>
+            <p class="stat-value">248.00 <span class="unit">HALLOY</span></p>
+            <p class="stat-note">18.4% of basket</p>
+          </article>
+
+          <article class="stat-card hide-sm">
+            <p class="stat-label">Protocol TVL</p>
+            <p class="stat-value">$48,920.00</p>
+            <p class="stat-note">Across all assets</p>
+          </article>
+        </section>
+
+        <!-- Basket composition -->
+        <section class="card">
+          <h2 class="section-title">Basket Composition</h2>
+          <div class="progress-bar" role="img" aria-label="Real Estate 68.4 percent, Gold 31.6 percent">
+            <span class="progress-segment is-navy" style="width:68.4%"></span>
+            <span class="progress-segment is-gold" style="width:31.6%"></span>
+          </div>
+
+          <div class="legend">
+            <div class="legend-row">
+              <span class="legend-name"><i class="legend-dot is-navy"></i>Real Estate <small>(mREAL)</small></span>
+              <span class="legend-pct">68.4%</span>
+              <span class="legend-val">$33,460.00</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-name"><i class="legend-dot is-gold"></i>Gold <small>(mGOLD)</small></span>
+              <span class="legend-pct">31.6%</span>
+              <span class="legend-val">$15,460.00</span>
+            </div>
+          </div>
+
+          <div class="split-stats">
+            <div>
+              <p class="stat-label">Total Basket Value</p>
+              <p class="stat-value">$48,920.00</p>
+            </div>
+            <div class="split-token">
+              <span class="token-badge">H</span>
+              <div>
+                <p class="stat-label">HALLOY Supply</p>
+                <p class="stat-value">48,920.00</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Underlying assets + position -->
+        <div class="grid-2">
+          <section class="card">
+            <h2 class="section-title">Underlying Assets</h2>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Asset</th>
+                    <th class="num">Allocation</th>
+                    <th class="num">Holdings</th>
+                    <th class="num">Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="asset-cell">
+                        <span class="asset-icon"><svg class="icon"><use href="#i-building"></use></svg></span>
+                        <span>Real Estate <small>(mREAL)</small></span>
+                      </div>
+                    </td>
+                    <td class="num">68.4%</td>
+                    <td class="num">684.00</td>
+                    <td class="num">$33,460.00</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="asset-cell">
+                        <span class="asset-icon is-gold"><svg class="icon"><use href="#i-gold"></use></svg></span>
+                        <span>Gold <small>(mGOLD)</small></span>
+                      </div>
+                    </td>
+                    <td class="num">31.6%</td>
+                    <td class="num">316.00</td>
+                    <td class="num">$15,460.00</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>Total</td>
+                    <td class="num">100%</td>
+                    <td class="num">1,000.00</td>
+                    <td class="num">$48,920.00</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2 class="section-title">Your Position</h2>
+            <p class="position-value">248.00 <span class="unit">HALLOY</span></p>
+            <p class="stat-note">0.51% of total supply</p>
+            <div class="meter" aria-hidden="true"><span style="width:0.51%"></span></div>
+
+            <p class="kv-title">Value on Basket</p>
+            <div class="kv-list">
+              <div class="kv"><span>Real Estate</span><strong>168.83 mREAL (68.4%)</strong></div>
+              <div class="kv"><span>Gold</span><strong>79.17 mGOLD (31.6%)</strong></div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Protocol status -->
+        <section class="card">
+          <h2 class="section-title">Protocol Status</h2>
+          <div class="status-grid">
+            <div class="status-item">
+              <small>Network</small>
+              <span class="status-value"><svg class="icon"><use href="#i-network"></use></svg>Arbitrum Sepolia</span>
+            </div>
+            <div class="status-item">
+              <small>Vault</small>
+              <!-- Replace data-copy with the full vault address after deployment -->
+              <span class="status-value">0x3C6...B7A1
+                <button class="icon-btn" type="button" data-copy="0x3C6...B7A1" aria-label="Copy vault address"><svg class="icon"><use href="#i-copy"></use></svg></button>
+              </span>
+            </div>
+            <div class="status-item">
+              <small>Assets</small>
+              <span class="status-value">2</span>
+            </div>
+            <div class="status-item">
+              <small>Basket Token</small>
+              <span class="status-value">HALLOY</span>
+            </div>
+            <div class="status-item">
+              <small>Oracle</small>
+              <span class="status-value"><i class="status-dot is-gold"></i>Not connected</span>
+            </div>
+            <div class="status-item">
+              <small>Status</small>
+              <span class="status-value"><i class="status-dot is-gold"></i>Prototype</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
