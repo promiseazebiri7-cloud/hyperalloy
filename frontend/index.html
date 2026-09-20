@@ -51,10 +51,42 @@
             <p class="text-muted" style="margin-top: 16px; font-size: 13px;">Built on Arbitrum Sepolia</p>
           </div>
 
-          <!-- Right column: hero illustration placeholder -->
+          <!-- Right column: hero illustration (asset cards + basket disc) -->
           <div style="display: flex; justify-content: center;">
-            <!-- hero illustration image goes here -->
-            <div style="width: 400px; height: 400px; background: var(--light-gray); border-radius: var(--radius-lg); border: var(--border-hairline);"></div>
+            <div style="position: relative; width: 400px; height: 400px;">
+              <svg viewBox="0 0 400 400" style="width: 100%; height: 100%;" aria-hidden="true">
+                <line x1="130" y1="150" x2="200" y2="230" stroke="var(--light-gray)" stroke-width="1.5"/>
+                <line x1="270" y1="150" x2="200" y2="230" stroke="var(--light-gray)" stroke-width="1.5"/>
+
+                <!-- Real Estate card -->
+                <g>
+                  <rect x="70" y="70" width="120" height="110" rx="10" fill="var(--white)" stroke="var(--light-gray)" stroke-width="1.5"/>
+                  <text x="90" y="98" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.06em" fill="var(--slate-60)">REAL ESTATE</text>
+                  <text x="90" y="112" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--slate-60)">mREAL</text>
+                  <rect x="110" y="125" width="40" height="35" fill="var(--navy)" opacity="0.9"/>
+                  <rect x="118" y="133" width="6" height="8" fill="var(--white)"/>
+                  <rect x="130" y="133" width="6" height="8" fill="var(--white)"/>
+                  <rect x="118" y="146" width="6" height="8" fill="var(--white)"/>
+                  <rect x="130" y="146" width="6" height="8" fill="var(--white)"/>
+                </g>
+
+                <!-- Gold card -->
+                <g>
+                  <rect x="210" y="70" width="120" height="110" rx="10" fill="var(--white)" stroke="var(--light-gray)" stroke-width="1.5"/>
+                  <text x="230" y="98" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.06em" fill="var(--slate-60)">GOLD</text>
+                  <text x="230" y="112" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--slate-60)">mGOLD</text>
+                  <rect x="245" y="128" width="40" height="14" rx="2" fill="var(--gold)"/>
+                  <rect x="250" y="142" width="34" height="13" rx="2" fill="var(--gold)"/>
+                  <rect x="255" y="155" width="28" height="12" rx="2" fill="var(--gold)"/>
+                </g>
+
+                <!-- Basket disc -->
+                <ellipse cx="200" cy="320" rx="90" ry="16" fill="var(--light-gray)"/>
+                <ellipse cx="200" cy="312" rx="90" ry="18" fill="#EFE6D0"/>
+                <circle cx="200" cy="270" r="42" fill="var(--navy)"/>
+                <path d="M188 254 L188 286 M188 270 L212 270 M212 254 L212 286" stroke="var(--gold)" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
           </div>
 
         </div>
