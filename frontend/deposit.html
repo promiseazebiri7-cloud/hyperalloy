@@ -1,1 +1,87 @@
-hsjjskdnd
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F9F7F4">
+  <title>Deposit | Hyperalloy</title>
+  <link rel="icon" href="assets/20260824_024823.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;1,8..60,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="has-tabbar" data-page="deposit">
+  <div class="page">
+    <header class="navbar" id="app-header"></header>
+
+    <main class="page-content">
+      <div class="container">
+        <div class="narrow stack">
+
+          <div class="page-head">
+            <h1 class="page-title">Deposit Assets</h1>
+            <p class="page-sub">Add assets to the Hyperalloy basket.</p>
+          </div>
+
+          <!-- Real estate token -->
+          <article class="card token-card">
+            <div class="token-head">
+              <div class="token-id">
+                <span class="asset-icon"><svg class="icon"><use href="#i-building"></use></svg></span>
+                Real Estate Token <span class="token-tag">mREAL</span>
+              </div>
+              <div class="token-balance">Your Balance<strong>1,250.00 mREAL</strong></div>
+            </div>
+            <div class="amount-field" id="field-mreal">
+              <input class="amount-input" id="in-mreal" type="text" inputmode="decimal" autocomplete="off" value="100.00" data-max="1250" aria-label="mREAL amount to deposit">
+              <button class="max-btn" type="button" data-max-for="in-mreal">MAX</button>
+            </div>
+            <div class="field-meta">
+              <span>Available: 1,250.00 mREAL</span>
+              <span class="field-status"><svg class="icon"><use href="#i-check"></use></svg>Approved</span>
+            </div>
+            <p class="field-error" id="err-mreal" hidden>Amount is higher than your balance.</p>
+          </article>
+
+          <!-- Gold token -->
+          <article class="card token-card">
+            <div class="token-head">
+              <div class="token-id">
+                <span class="asset-icon is-gold"><svg class="icon"><use href="#i-gold"></use></svg></span>
+                Gold Token <span class="token-tag">mGOLD</span>
+              </div>
+              <div class="token-balance">Your Balance<strong>840.00 mGOLD</strong></div>
+            </div>
+            <div class="amount-field" id="field-mgold">
+              <input class="amount-input" id="in-mgold" type="text" inputmode="decimal" autocomplete="off" value="50.00" data-max="840" aria-label="mGOLD amount to deposit">
+              <button class="max-btn" type="button" data-max-for="in-mgold">MAX</button>
+            </div>
+            <div class="field-meta">
+              <span>Available: 840.00 mGOLD</span>
+              <span class="field-status"><svg class="icon"><use href="#i-check"></use></svg>Approved</span>
+            </div>
+            <p class="field-error" id="err-mgold" hidden>Amount is higher than your balance.</p>
+          </article>
+
+          <!-- Summary -->
+          <section class="card">
+            <h2 class="section-title">Your Deposit</h2>
+            <div class="summary-row"><span>Real Estate (mREAL)</span><strong id="sum-mreal">100.00</strong></div>
+            <div class="summary-row"><span>Gold (mGOLD)</span><strong id="sum-mgold">50.00</strong></div>
+            <div class="summary-row summary-total">
+              <span>Estimated HALLOY to Receive</span>
+              <strong><span id="sum-halloy">150.00</span> HALLOY</strong>
+            </div>
+          </section>
+
+          <button class="btn btn-primary btn-block" type="button" id="deposit-btn">Deposit Assets</button>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
