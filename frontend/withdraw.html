@@ -1,1 +1,93 @@
-jdjssmjs
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F9F7F4">
+  <title>Withdraw | Hyperalloy</title>
+  <link rel="icon" href="assets/20260824_024823.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;1,8..60,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="has-tabbar" data-page="withdraw">
+  <div class="page">
+    <header class="navbar" id="app-header"></header>
+
+    <main class="page-content">
+      <div class="container">
+        <div class="content-md">
+
+          <div class="page-head">
+            <h1 class="page-title">Redeem Your Position</h1>
+            <p class="page-sub">Burn HALLOY to receive your proportional share of the underlying basket.</p>
+          </div>
+
+          <div class="withdraw-grid">
+
+            <!-- Amount -->
+            <section class="card wg-amount">
+              <h2 class="section-title">Amount to Withdraw</h2>
+              <div class="amount-field" id="field-halloy">
+                <input class="amount-input" id="in-halloy" type="text" inputmode="decimal" autocomplete="off" value="50.00" data-max="248" aria-label="HALLOY amount to withdraw">
+                <span class="amount-unit">HALLOY</span>
+                <button class="max-btn" type="button" data-max-for="in-halloy">MAX</button>
+              </div>
+              <div class="field-meta"><span>Available: 248.00 HALLOY</span></div>
+              <p class="field-error" id="err-halloy" hidden>Amount is higher than your balance.</p>
+            </section>
+
+            <!-- You will receive -->
+            <section class="card wg-receive">
+              <h2 class="section-title">You Will Receive</h2>
+              <div class="receive-row">
+                <div class="asset-cell">
+                  <span class="asset-icon"><svg class="icon"><use href="#i-building"></use></svg></span>
+                  Real Estate (mREAL)
+                </div>
+                <strong><span id="out-mreal">34.20</span> <span class="unit">mREAL</span></strong>
+              </div>
+              <div class="receive-row">
+                <div class="asset-cell">
+                  <span class="asset-icon is-gold"><svg class="icon"><use href="#i-gold"></use></svg></span>
+                  Gold (mGOLD)
+                </div>
+                <strong><span id="out-mgold">15.80</span> <span class="unit">mGOLD</span></strong>
+              </div>
+            </section>
+
+            <!-- After withdrawal -->
+            <section class="card wg-after">
+              <h2 class="section-title">After Withdrawal</h2>
+              <p class="kv-title">Remaining HALLOY Balance</p>
+              <p class="big-value"><span id="rem-halloy">198.00</span> <span class="unit">HALLOY</span></p>
+              <p class="kv-title">Your Ownership</p>
+              <p class="kv"><strong><span id="rem-own">0.41%</span> of total supply</strong></p>
+            </section>
+
+            <!-- Exchange rate -->
+            <section class="card card-tint wg-rate">
+              <h2 class="section-title">Exchange Rate (Current)</h2>
+              <p class="kv-title">1 HALLOY =</p>
+              <p class="kv"><strong>0.684 mREAL + 0.316 mGOLD</strong></p>
+            </section>
+
+            <!-- Action -->
+            <div class="wg-action">
+              <button class="btn btn-primary btn-block" type="button" id="withdraw-btn">Withdraw</button>
+              <div class="notice">
+                <svg class="icon"><use href="#i-info"></use></svg>
+                <span>Note: You will receive your proportional share based on the current basket composition at the time of withdrawal.</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
