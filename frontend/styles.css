@@ -197,16 +197,17 @@ p { color: var(--slate); }
 }
 
 .navbar-logo-mark {
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
-  background: linear-gradient(135deg, var(--gold), #B8912C);
+  height: 36px;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--navy);
-  font-weight: 700;
-  font-size: 13px;
+}
+
+.navbar-logo-mark img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 .navbar-links {
