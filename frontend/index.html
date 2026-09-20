@@ -2,114 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hyperalloy — Liquidity infrastructure for tokenized real-world assets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F9F7F4">
+  <title>Hyperalloy | Liquidity infrastructure for tokenized real-world assets</title>
+  <meta name="description" content="Hyperalloy combines tokenized assets into diversified on-chain baskets, giving otherwise idle positions a programmable path to liquidity.">
+
+  <link rel="icon" href="assets/20260824_024823.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;1,8..60,500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="page">
 
-    <!-- ==================== NAVBAR ==================== -->
-    <header class="navbar">
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
       <div class="navbar-inner">
         <div class="navbar-left">
-          <a href="index.html" class="navbar-logo">
-            <span class="navbar-logo-mark">
-              <img src="assets/20260824_024823.png" alt="Hyperalloy logo">
-            </span>
-            HYPERALLOY
+          <a class="navbar-logo" href="index.html" aria-label="Hyperalloy home">
+            <img class="navbar-logo-mark" src="assets/20260824_024823.png" alt="" width="32" height="32">
+            <span class="navbar-logo-text">HYPERALLOY</span>
           </a>
-          <nav class="navbar-links">
-            <a href="#about" class="navbar-link">About</a>
-            <a href="#docs" class="navbar-link">Docs</a>
-            <a href="https://github.com" class="navbar-link">GitHub</a>
-          </nav>
         </div>
+
         <div class="navbar-right">
-          <button class="btn btn-primary">Connect Wallet</button>
+          <nav class="navbar-links" id="nav-menu" aria-label="Primary">
+            <a class="navbar-link" href="#about">About</a>
+            <a class="navbar-link" href="#docs">Docs</a>
+            <a class="navbar-link" href="#github">GitHub</a>
+          </nav>
+
+          <button class="btn btn-primary btn-sm" type="button" id="connect-wallet">Connect Wallet</button>
+
+          <button class="nav-toggle" type="button" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16"/>
+            </svg>
+          </button>
         </div>
       </div>
     </header>
 
-    <!-- ==================== HERO ==================== -->
+    <!-- Main -->
     <main class="page-content">
-      <section class="container">
-        <div class="grid-2" style="align-items: center; grid-template-columns: 1.1fr 0.9fr; gap: 48px;">
+      <div class="container">
 
-          <!-- Left column: headline + copy -->
-          <div>
-            <p class="eyebrow" style="margin-bottom: 16px;">Real-World Asset Liquidity Protocol</p>
-            <h1 class="display-xl">
+        <!-- Hero -->
+        <section class="hero" id="about">
+          <div class="hero-copy">
+            <p class="eyebrow hero-eyebrow">Real-World Asset Liquidity Protocol</p>
+
+            <h1 class="display-xl hero-title">
               Liquidity infrastructure for tokenized <em>real-world assets.</em>
             </h1>
-            <p style="margin-top: 20px; max-width: 460px; font-size: 16px; line-height: 1.6;">
+
+            <p class="hero-text">
               Hyperalloy combines tokenized assets into diversified on-chain baskets, giving otherwise idle positions a programmable path to liquidity.
             </p>
-            <div style="margin-top: 32px;">
-              <button class="btn btn-primary">Connect Wallet →</button>
+
+            <div class="hero-actions">
+              <button class="btn btn-primary" type="button" id="connect-wallet-hero">
+                Connect Wallet
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+              </button>
+              <p class="hero-note">Built on Arbitrum Sepolia</p>
             </div>
-            <p class="text-muted" style="margin-top: 16px; font-size: 13px;">Built on Arbitrum Sepolia</p>
           </div>
 
-          <!-- Right column: hero illustration placeholder -->
-          <div style="display: flex; justify-content: center;">
-            <!-- hero illustration image goes here -->
-            <div style="width: 400px; height: 400px; background: var(--light-gray); border-radius: var(--radius-lg); border: var(--border-hairline);"></div>
+          <div class="hero-visual">
+            <img class="hero-image" src="assets/20260827_004904.png" alt="Real estate and gold glass cards feeding into the HALLOY basket token" width="400" height="400">
+          </div>
+        </section>
+
+        <!-- Status badges -->
+        <section class="footer-strip" aria-label="Protocol status">
+          <div class="footer-badge">
+            <span class="footer-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+                <path d="M12 2.5l8 4.5v10l-8 4.5-8-4.5V7z"/>
+                <path d="M9 15l3-6 3 6M10 13h4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="footer-badge-text">
+              <span class="footer-badge-title">Arbitrum Sepolia</span>
+              <span class="footer-badge-sub">Testnet</span>
+            </span>
           </div>
 
-        </div>
-
-        <!-- ==================== STATUS BADGES ==================== -->
-        <div class="card" style="margin-top: 64px;">
-          <div class="grid-3" style="grid-template-columns: repeat(4, 1fr); gap: 0;">
-
-            <div style="display: flex; align-items: center; gap: 12px; padding: 0 16px;">
-              <div class="token-icon" aria-hidden="true">⬡</div>
-              <div>
-                <div style="font-size: 13px; font-weight: 600; color: var(--navy);">Arbitrum Sepolia</div>
-                <div class="text-muted" style="font-size: 12px;">Testnet</div>
-              </div>
-            </div>
-
-            <div style="display: flex; align-items: center; gap: 12px; padding: 0 16px;">
-              <div class="token-icon" aria-hidden="true">
-                <span class="status-dot live" style="margin: 0;"></span>
-              </div>
-              <div>
-                <div style="font-size: 13px; font-weight: 600; color: var(--navy);">Vault Active</div>
-                <div class="text-muted" style="font-size: 12px;">Operational</div>
-              </div>
-            </div>
-
-            <div style="display: flex; align-items: center; gap: 12px; padding: 0 16px;">
-              <div class="token-icon" aria-hidden="true">▤</div>
-              <div>
-                <div style="font-size: 13px; font-weight: 600; color: var(--navy);">2 Assets</div>
-                <div class="text-muted" style="font-size: 12px;">In Basket</div>
-              </div>
-            </div>
-
-            <div style="display: flex; align-items: center; gap: 12px; padding: 0 16px;">
-              <div class="token-icon" aria-hidden="true">H</div>
-              <div>
-                <div style="font-size: 13px; font-weight: 600; color: var(--navy);">HALLOY</div>
-                <div class="text-muted" style="font-size: 12px;">Basket Token</div>
-              </div>
-            </div>
-
+          <div class="footer-badge">
+            <span class="footer-badge-icon is-live" aria-hidden="true">
+              <span class="status-dot"></span>
+            </span>
+            <span class="footer-badge-text">
+              <span class="footer-badge-title">Vault Active</span>
+              <span class="footer-badge-sub">Operational</span>
+            </span>
           </div>
-        </div>
-      </section>
+
+          <div class="footer-badge">
+            <span class="footer-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M12 3l9 4.5-9 4.5-9-4.5z"/>
+                <path d="M3 12l9 4.5 9-4.5"/>
+                <path d="M3 16.5L12 21l9-4.5"/>
+              </svg>
+            </span>
+            <span class="footer-badge-text">
+              <span class="footer-badge-title">2 Assets</span>
+              <span class="footer-badge-sub">In Basket</span>
+            </span>
+          </div>
+
+          <div class="footer-badge">
+            <span class="footer-badge-icon" aria-hidden="true">
+              <span class="token-badge">H</span>
+            </span>
+            <span class="footer-badge-text">
+              <span class="footer-badge-title">HALLOY</span>
+              <span class="footer-badge-sub">Basket Token</span>
+            </span>
+          </div>
+        </section>
+
+      </div>
     </main>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer-strip">
-      <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-        <span class="footer-badge">Hyperalloy Protocol</span>
-        <span class="footer-badge text-muted">Audited Standards · OpenZeppelin Secure Contracts</span>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container site-footer-inner">
+        <strong>Hyperalloy Protocol</strong>
+        <span>Audited Standards · OpenZeppelin Secure Contracts</span>
       </div>
     </footer>
 
   </div>
+
+  <script>
+    // Mobile menu toggle
+    (function () {
+      var navbar = document.getElementById('navbar');
+      var toggle = document.getElementById('nav-toggle');
+      toggle.addEventListener('click', function () {
+        var open = navbar.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.querySelectorAll('.navbar-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+          navbar.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
