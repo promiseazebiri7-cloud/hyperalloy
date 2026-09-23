@@ -402,7 +402,7 @@
       renderPage();
     }).catch(function (err) {
       console.error(err);
-      toast('Could not load on-chain data.');
+      toast('ERROR: ' + (err && err.message ? err.message : JSON.stringify(err)));
     });
   }
 
