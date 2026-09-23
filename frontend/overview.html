@@ -22,8 +22,9 @@
         <section class="stat-grid" aria-label="Key numbers">
           <article class="stat-card">
             <p class="stat-label">Portfolio Value</p>
-            <p class="stat-value">$12,480.00</p>
-            <p class="stat-delta">+2.14% (24h)</p>
+            <p class="stat-value">$<span id="ov-portfolio-value">0.00</span></p>
+            <!-- No on-chain source for 24h change; hidden until a price history feed exists -->
+            <p class="stat-delta" hidden>+0.00% (24h)</p>
           </article>
 
           <article class="stat-card">
@@ -31,13 +32,13 @@
               <p class="stat-label">Your HALLOY Balance</p>
               <span class="token-badge">H</span>
             </div>
-            <p class="stat-value">248.00 <span class="unit">HALLOY</span></p>
-            <p class="stat-note">18.4% of basket</p>
+            <p class="stat-value"><span id="ov-halloy-balance">0.00</span> <span class="unit">HALLOY</span></p>
+            <p class="stat-note"><span id="ov-halloy-pct">0.00%</span> of basket</p>
           </article>
 
           <article class="stat-card hide-sm">
             <p class="stat-label">Protocol TVL</p>
-            <p class="stat-value">$48,920.00</p>
+            <p class="stat-value">$<span id="ov-tvl">0.00</span></p>
             <p class="stat-note">Across all assets</p>
           </article>
         </section>
@@ -45,34 +46,34 @@
         <!-- Basket composition -->
         <section class="card">
           <h2 class="section-title">Basket Composition</h2>
-          <div class="progress-bar" role="img" aria-label="Real Estate 68.4 percent, Gold 31.6 percent">
-            <span class="progress-segment is-navy" style="width:68.4%"></span>
-            <span class="progress-segment is-gold" style="width:31.6%"></span>
+          <div class="progress-bar" id="ov-progress-bar" role="img" aria-label="Real Estate and Gold allocation">
+            <span class="progress-segment is-navy" id="ov-bar-re" style="width:0%"></span>
+            <span class="progress-segment is-gold" id="ov-bar-gold" style="width:0%"></span>
           </div>
 
           <div class="legend">
             <div class="legend-row">
               <span class="legend-name"><i class="legend-dot is-navy"></i>Real Estate <small>(mREAL)</small></span>
-              <span class="legend-pct">68.4%</span>
-              <span class="legend-val">$33,460.00</span>
+              <span class="legend-pct"><span id="ov-legend-re-pct">0.0%</span></span>
+              <span class="legend-val">$<span id="ov-legend-re-val">0.00</span></span>
             </div>
             <div class="legend-row">
               <span class="legend-name"><i class="legend-dot is-gold"></i>Gold <small>(mGOLD)</small></span>
-              <span class="legend-pct">31.6%</span>
-              <span class="legend-val">$15,460.00</span>
+              <span class="legend-pct"><span id="ov-legend-gold-pct">0.0%</span></span>
+              <span class="legend-val">$<span id="ov-legend-gold-val">0.00</span></span>
             </div>
           </div>
 
           <div class="split-stats">
             <div>
               <p class="stat-label">Total Basket Value</p>
-              <p class="stat-value">$48,920.00</p>
+              <p class="stat-value">$<span id="ov-total-value">0.00</span></p>
             </div>
             <div class="split-token">
               <span class="token-badge">H</span>
               <div>
                 <p class="stat-label">HALLOY Supply</p>
-                <p class="stat-value">48,920.00</p>
+                <p class="stat-value"><span id="ov-halloy-supply">0.00</span></p>
               </div>
             </div>
           </div>
@@ -100,9 +101,9 @@
                         <span>Real Estate <small>(mREAL)</small></span>
                       </div>
                     </td>
-                    <td class="num">68.4%</td>
-                    <td class="num">684.00</td>
-                    <td class="num">$33,460.00</td>
+                    <td class="num"><span id="ov-table-re-alloc">0.0%</span></td>
+                    <td class="num"><span id="ov-table-re-holdings">0.00</span></td>
+                    <td class="num">$<span id="ov-table-re-value">0.00</span></td>
                   </tr>
                   <tr>
                     <td>
@@ -111,17 +112,17 @@
                         <span>Gold <small>(mGOLD)</small></span>
                       </div>
                     </td>
-                    <td class="num">31.6%</td>
-                    <td class="num">316.00</td>
-                    <td class="num">$15,460.00</td>
+                    <td class="num"><span id="ov-table-gold-alloc">0.0%</span></td>
+                    <td class="num"><span id="ov-table-gold-holdings">0.00</span></td>
+                    <td class="num">$<span id="ov-table-gold-value">0.00</span></td>
                   </tr>
                 </tbody>
                 <tfoot>
                   <tr>
                     <td>Total</td>
                     <td class="num">100%</td>
-                    <td class="num">1,000.00</td>
-                    <td class="num">$48,920.00</td>
+                    <td class="num"><span id="ov-table-total-holdings">0.00</span></td>
+                    <td class="num">$<span id="ov-table-total-value">0.00</span></td>
                   </tr>
                 </tfoot>
               </table>
@@ -130,14 +131,14 @@
 
           <section class="card">
             <h2 class="section-title">Your Position</h2>
-            <p class="position-value">248.00 <span class="unit">HALLOY</span></p>
-            <p class="stat-note">0.51% of total supply</p>
-            <div class="meter" aria-hidden="true"><span style="width:0.51%"></span></div>
+            <p class="position-value"><span id="ov-position-balance">0.00</span> <span class="unit">HALLOY</span></p>
+            <p class="stat-note"><span id="ov-position-pct">0.00%</span> of total supply</p>
+            <div class="meter" aria-hidden="true"><span id="ov-position-meter" style="width:0%"></span></div>
 
             <p class="kv-title">Value on Basket</p>
             <div class="kv-list">
-              <div class="kv"><span>Real Estate</span><strong>168.83 mREAL (68.4%)</strong></div>
-              <div class="kv"><span>Gold</span><strong>79.17 mGOLD (31.6%)</strong></div>
+              <div class="kv"><span>Real Estate</span><strong><span id="ov-position-re">0.00</span> mREAL (<span id="ov-position-re-pct">0.0%</span>)</strong></div>
+              <div class="kv"><span>Gold</span><strong><span id="ov-position-gold">0.00</span> mGOLD (<span id="ov-position-gold-pct">0.0%</span>)</strong></div>
             </div>
           </section>
         </div>
@@ -152,9 +153,8 @@
             </div>
             <div class="status-item">
               <small>Vault</small>
-              <!-- Replace data-copy with the full vault address after deployment -->
-              <span class="status-value">0x3C6...B7A1
-                <button class="icon-btn" type="button" data-copy="0x3C6...B7A1" aria-label="Copy vault address"><svg class="icon"><use href="#i-copy"></use></svg></button>
+              <span class="status-value">0x6974...05fC5
+                <button class="icon-btn" type="button" data-copy="0x6974182eBA01d6aAe53056FdD2F5e1f9fFe05fC5" aria-label="Copy vault address"><svg class="icon"><use href="#i-copy"></use></svg></button>
               </span>
             </div>
             <div class="status-item">
@@ -180,6 +180,8 @@
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
