@@ -27,7 +27,7 @@ This isn't about making any single asset more valuable — it's about combining 
 - [x] Vault contract (deposit / withdraw / basket minting)
 - [x] Deployment to Arbitrum Sepolia
 - [ ] Chainlink oracle integration
-- [ ] Frontend (deposit, basket view, withdraw)
+- [x] Frontend (deposit, basket view, withdraw)
 
 ## Tech Stack
 
