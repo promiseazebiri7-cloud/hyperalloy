@@ -31,15 +31,15 @@
                 <span class="asset-icon"><svg class="icon"><use href="#i-building"></use></svg></span>
                 Real Estate Token <span class="token-tag">mREAL</span>
               </div>
-              <div class="token-balance">Your Balance<strong>1,250.00 mREAL</strong></div>
+              <div class="token-balance">Your Balance<strong><span id="dep-mreal-balance">0.00</span> mREAL</strong></div>
             </div>
             <div class="amount-field" id="field-mreal">
-              <input class="amount-input" id="in-mreal" type="text" inputmode="decimal" autocomplete="off" value="100.00" data-max="1250" aria-label="mREAL amount to deposit">
+              <input class="amount-input" id="in-mreal" type="text" inputmode="decimal" autocomplete="off" value="" data-max="0" aria-label="mREAL amount to deposit">
               <button class="max-btn" type="button" data-max-for="in-mreal">MAX</button>
             </div>
             <div class="field-meta">
-              <span>Available: 1,250.00 mREAL</span>
-              <span class="field-status"><svg class="icon"><use href="#i-check"></use></svg>Approved</span>
+              <span>Available: <span id="dep-mreal-available">0.00</span> mREAL</span>
+              <span class="field-status" id="status-mreal"></span>
             </div>
             <p class="field-error" id="err-mreal" hidden>Amount is higher than your balance.</p>
           </article>
@@ -51,15 +51,15 @@
                 <span class="asset-icon is-gold"><svg class="icon"><use href="#i-gold"></use></svg></span>
                 Gold Token <span class="token-tag">mGOLD</span>
               </div>
-              <div class="token-balance">Your Balance<strong>840.00 mGOLD</strong></div>
+              <div class="token-balance">Your Balance<strong><span id="dep-mgold-balance">0.00</span> mGOLD</strong></div>
             </div>
             <div class="amount-field" id="field-mgold">
-              <input class="amount-input" id="in-mgold" type="text" inputmode="decimal" autocomplete="off" value="50.00" data-max="840" aria-label="mGOLD amount to deposit">
+              <input class="amount-input" id="in-mgold" type="text" inputmode="decimal" autocomplete="off" value="" data-max="0" aria-label="mGOLD amount to deposit">
               <button class="max-btn" type="button" data-max-for="in-mgold">MAX</button>
             </div>
             <div class="field-meta">
-              <span>Available: 840.00 mGOLD</span>
-              <span class="field-status"><svg class="icon"><use href="#i-check"></use></svg>Approved</span>
+              <span>Available: <span id="dep-mgold-available">0.00</span> mGOLD</span>
+              <span class="field-status" id="status-mgold"></span>
             </div>
             <p class="field-error" id="err-mgold" hidden>Amount is higher than your balance.</p>
           </article>
@@ -67,21 +67,24 @@
           <!-- Summary -->
           <section class="card">
             <h2 class="section-title">Your Deposit</h2>
-            <div class="summary-row"><span>Real Estate (mREAL)</span><strong id="sum-mreal">100.00</strong></div>
-            <div class="summary-row"><span>Gold (mGOLD)</span><strong id="sum-mgold">50.00</strong></div>
+            <div class="summary-row"><span>Real Estate (mREAL)</span><strong id="sum-mreal">0.00</strong></div>
+            <div class="summary-row"><span>Gold (mGOLD)</span><strong id="sum-mgold">0.00</strong></div>
             <div class="summary-row summary-total">
               <span>Estimated HALLOY to Receive</span>
-              <strong><span id="sum-halloy">150.00</span> HALLOY</strong>
+              <strong><span id="sum-halloy">0.00</span> HALLOY</strong>
             </div>
           </section>
 
-          <button class="btn btn-primary btn-block" type="button" id="deposit-btn">Deposit Assets</button>
+          <button class="btn btn-primary btn-block" type="button" id="deposit-btn">Connect Wallet</button>
+          <p class="field-error" id="dep-tx-status" hidden></p>
 
         </div>
       </div>
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
