@@ -30,11 +30,11 @@
             <section class="card wg-amount">
               <h2 class="section-title">Amount to Withdraw</h2>
               <div class="amount-field" id="field-halloy">
-                <input class="amount-input" id="in-halloy" type="text" inputmode="decimal" autocomplete="off" value="50.00" data-max="248" aria-label="HALLOY amount to withdraw">
+                <input class="amount-input" id="in-halloy" type="text" inputmode="decimal" autocomplete="off" value="" data-max="0" aria-label="HALLOY amount to withdraw">
                 <span class="amount-unit">HALLOY</span>
                 <button class="max-btn" type="button" data-max-for="in-halloy">MAX</button>
               </div>
-              <div class="field-meta"><span>Available: 248.00 HALLOY</span></div>
+              <div class="field-meta"><span>Available: <span id="wd-halloy-available">0.00</span> HALLOY</span></div>
               <p class="field-error" id="err-halloy" hidden>Amount is higher than your balance.</p>
             </section>
 
@@ -46,14 +46,14 @@
                   <span class="asset-icon"><svg class="icon"><use href="#i-building"></use></svg></span>
                   Real Estate (mREAL)
                 </div>
-                <strong><span id="out-mreal">34.20</span> <span class="unit">mREAL</span></strong>
+                <strong><span id="out-mreal">0.00</span> <span class="unit">mREAL</span></strong>
               </div>
               <div class="receive-row">
                 <div class="asset-cell">
                   <span class="asset-icon is-gold"><svg class="icon"><use href="#i-gold"></use></svg></span>
                   Gold (mGOLD)
                 </div>
-                <strong><span id="out-mgold">15.80</span> <span class="unit">mGOLD</span></strong>
+                <strong><span id="out-mgold">0.00</span> <span class="unit">mGOLD</span></strong>
               </div>
             </section>
 
@@ -61,21 +61,22 @@
             <section class="card wg-after">
               <h2 class="section-title">After Withdrawal</h2>
               <p class="kv-title">Remaining HALLOY Balance</p>
-              <p class="big-value"><span id="rem-halloy">198.00</span> <span class="unit">HALLOY</span></p>
+              <p class="big-value"><span id="rem-halloy">0.00</span> <span class="unit">HALLOY</span></p>
               <p class="kv-title">Your Ownership</p>
-              <p class="kv"><strong><span id="rem-own">0.41%</span> of total supply</strong></p>
+              <p class="kv"><strong><span id="rem-own">0.00%</span> of total supply</strong></p>
             </section>
 
             <!-- Exchange rate -->
             <section class="card card-tint wg-rate">
               <h2 class="section-title">Exchange Rate (Current)</h2>
               <p class="kv-title">1 HALLOY =</p>
-              <p class="kv"><strong>0.684 mREAL + 0.316 mGOLD</strong></p>
+              <p class="kv"><strong><span id="wd-rate-mreal">0.0000</span> mREAL + <span id="wd-rate-mgold">0.0000</span> mGOLD</strong></p>
             </section>
 
             <!-- Action -->
             <div class="wg-action">
-              <button class="btn btn-primary btn-block" type="button" id="withdraw-btn">Withdraw</button>
+              <button class="btn btn-primary btn-block" type="button" id="withdraw-btn">Connect Wallet</button>
+              <p class="field-error" id="wd-tx-status" hidden></p>
               <div class="notice">
                 <svg class="icon"><use href="#i-info"></use></svg>
                 <span>Note: You will receive your proportional share based on the current basket composition at the time of withdrawal.</span>
@@ -88,6 +89,8 @@
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
