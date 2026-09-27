@@ -13,9 +13,9 @@
   'use strict';
 
   var ADDRESSES = {
-    realEstateToken: '0xf22e28b426b3f3cf0FA1143b9470D5d265f68252',
-    goldToken: '0xE19C5bB9c4633bDA96c25B0e8C9314189bE65818',
-    vault: '0x6974182eBA01d6aAe53056FdD2F5e1f9fFe05fC5'
+    realEstateToken: '0xd9145CCE52D386f254917e481eB44e9943F39138',
+    goldToken: '0xae7Bdf612A4e7da53f467888659ADcC3A74d5A70',
+    vault: '0xBf619ed3618Ca077e76A72dB3FF802D302aE28D5'
   };
 
   var CHAIN_ID_HEX = '0x66eee'; // 421614
